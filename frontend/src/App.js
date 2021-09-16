@@ -21,10 +21,9 @@ import BoardModerator2 from "./screens/BoardModerator2";
 import BoardModerator3 from "./screens/BoardModerator3";
 import BoardAdmin2 from "./screens/BoardAdmin2";
 import BoardAdmin3 from "./screens/BoardAdmin3";
-import ProtectedModRoute from './protected/ProtectedModRoute'
-import ProtectedAdminRoute from './protected/ProtectedAdminRoute'
-import ProtectedUserRoute from './protected/ProtectedUserRoute'
 import Page404 from "./pages/Page404";
+
+import PrivateRoute from './helpers/PrivateRoute';
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
@@ -45,13 +44,13 @@ const App = () => {
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/register" component={RegisterPage} />
             <Route exact path="/profile" component={ProfilePage} />
-            <ProtectedUserRoute path="/user" component={BoardUser} isAuth={_user} />
-            <ProtectedModRoute path="/mod" component={BoardModerator} isAuth={moderator} />
-            <ProtectedModRoute path="/mod2" component={BoardModerator2} isAuth={moderator} />
-            <ProtectedModRoute path="/mod3" component={BoardModerator3} isAuth={moderator} />
-            <ProtectedAdminRoute path="/admin" component={BoardAdmin} isAuth={admin} />
-            <ProtectedAdminRoute path="/admin2" component={BoardAdmin2} isAuth={admin} />
-            <ProtectedAdminRoute path="/admin3" component={BoardAdmin3} isAuth={admin} />
+            <PrivateRoute exact path="/user" component={BoardUser} isAuth={_user} />
+            <PrivateRoute exact path="/mod" component={BoardModerator} isAuth={moderator} />
+            <PrivateRoute exact path="/mod2" component={BoardModerator2} isAuth={moderator} />
+            <PrivateRoute exact path="/mod3" component={BoardModerator3} isAuth={moderator} />
+            <PrivateRoute exact path="/admin" component={BoardAdmin} isAuth={admin} />
+            <PrivateRoute exact path="/admin2" component={BoardAdmin2} isAuth={admin} />
+            <PrivateRoute exact path="/admin3" component={BoardAdmin3} isAuth={admin} />
             <Route path="*" component={Page404} />
           </Switch>
         </div>
