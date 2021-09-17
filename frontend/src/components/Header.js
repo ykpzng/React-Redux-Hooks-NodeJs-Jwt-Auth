@@ -85,7 +85,7 @@ export default function Header() {
               </li>
             </>
           )}
-          {/* Onyy Pages, if you want current page => "currentUser &&..."*/}
+          {/* Only Pages, if you want current page => "currentUser &&..." , currentUser; means if there is any user*/}
           {userBoard && (
             <>
               <li className="nav-item">
