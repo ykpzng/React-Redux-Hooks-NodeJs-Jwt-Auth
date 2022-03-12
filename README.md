@@ -1,7 +1,7 @@
 # React-Redux-Hooks-NodeJs-Jwt-Auth-MongoDb
 
   backend => npm install 
-  - node app.js  or  nodemon app.js
+  - node server.js  or  nodemon server.js or npm start
 
   frontend => npm install
   - npm start
